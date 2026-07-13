@@ -54,3 +54,28 @@
 ```bash
 cd deploy
 docker compose up -d
+```
+3. Настройка и запуск Proxy-сервера
+
+Настройте виртуальное окружение и установите зависимости:
+```bash
+cd server
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+Скопируйте конфигурацию и укажите ваши данные:
+```bash
+cp config.example.json config.json
+nano config.json
+```
+Для запуска в фоновом режиме используйте предоставленный шаблон Systemd-службы (deploy/smart-proxy.service).
+4. Прошивка ESP32
+
+Проект поддерживает сборку через PlatformIO.
+
+    Откройте папку hardware/ в VS Code.
+
+    Откройте main.cpp и вставьте ваши клиентские сертификаты и ключи Wi-Fi в соответствующие переменные.
+
+    Скомпилируйте и прошейте устройство (в platformio.ini уже прописаны необходимые зависимости, включая PubSubClient).
