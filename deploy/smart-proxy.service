@@ -1,0 +1,17 @@
+[Unit]
+Description=Smart Proxy v2 Monolith Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+# Указываем папку, где лежит скрипт и wait.html
+WorkingDirectory=/user/.../esp-proxy/
+# Путь к питону внутри виртуального окружения и сам скрипт
+ExecStart=/user/.../venv/bin/python main.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+

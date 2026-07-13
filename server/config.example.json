@@ -1,0 +1,21 @@
+{
+    "port": 443,
+    "ssl_cert": "/etc/letsencrypt/live/your-domain.com/fullchain.pem",
+    "ssl_key": "/etc/letsencrypt/live/your-domain.com/privkey.pem",
+    "mqtt": {
+        "broker": "localhost",
+        "port": 8883,
+        "topic": "home/server/power",
+        "payload": "WAKE",
+        "cert_ca": "./certs/ca.crt",
+        "cert_crt": "./certs/server.crt",
+        "cert_key": "./certs/server.key"
+    },
+    "hosts": {
+        "your-domain.com": {
+            "type": "home_server",
+            "target": "http://192.168.1.100:8080",
+            "wake_needed": true
+        }
+    }
+}
